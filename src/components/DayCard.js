@@ -1,6 +1,53 @@
 "use client";
 
-function getWeatherIcon(code) {
+function getWeatherIcon(code, night) {
+    switch (code) {
+        case 0:
+            return (night ? "https://worldweather.wmo.int/images/24b.png" : "https://worldweather.wmo.int/images/24a.png");
+        case 1:
+            return (night ? "https://worldweather.wmo.int/images/22b.png" : "https://worldweather.wmo.int/images/22a.png");
+        case 2:
+            return (night ? "https://worldweather.wmo.int/images/21b.png" : "https://worldweather.wmo.int/images/21a.png");
+        case 3:
+            return (night ? "https://worldweather.wmo.int/images/23b.png" : "https://worldweather.wmo.int/images/23a.png");
+        case 45:
+        case 48:
+            return "https://worldweather.wmo.int/images/16.png";
+        case 51:
+        case 53:
+        case 55:
+            return "https://worldweather.wmo.int/images/15.png";
+        case 61:
+        case 63:
+        case 65:
+            return "https://worldweather.wmo.int/images/14.png";
+        case 56:
+        case 57:
+        case 66:
+        case 67:
+            return "https://worldweather.wmo.int/images/13.png"
+        case 71:
+            return "https://worldweather.wmo.int/images/7.png";
+        case 73:
+        case 75:
+            return "https://worldweather.wmo.int/images/6.png";
+        case 77:
+            return "https://worldweather.wmo.int/images/5.png";
+        case 80:
+            return "https://worldweather.wmo.int/images/12.png";
+        case 81:
+        case 82:
+            return "https://worldweather.wmo.int/images/9.png";
+        case 85:
+            return "https://worldweather.wmo.int/images/7.png";
+        case 86:
+            return "https://worldweather.wmo.int/images/6.png";
+        case 95:
+            return "https://worldweather.wmo.int/images/2.png";
+        case 96:
+        case 99:
+            return "https://worldweather.wmo.int/images/3.png";
+    }
     return "";
 }
 
@@ -14,8 +61,8 @@ export default function DayCard({ day, weather }) {
     let dayName = date.toLocaleDateString("en-GB", { weekday: "short" });
 
     return (
-        <div className="bg-white shadow-md text-black text-center w-full p-2 border-1 border-zinc-300">
-            <img src={getWeatherIcon(weather.weather_code[day])} alt={getWeatherName(weather.weather_code[day])} title={getWeatherName(weather.weather_code[day])}/>
+        <div className="bg-white shadow-md text-black text-center w-full p-2 border-1 border-zinc-300 flex flex-col items-center">
+            <img src={getWeatherIcon(weather.weather_code[day], (date.getHours() < 6 || date.getHours() > 20))} alt={getWeatherName(weather.weather_code[day])} title={getWeatherName(weather.weather_code[day])}/>
             <p className="text-3xl font-bold">{dayName}</p>
             L: {weather ? weather.temperature_2m_min[day] : "..."} | H: {weather ? weather.temperature_2m_max[day] : "..."}
         </div>
