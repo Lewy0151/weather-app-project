@@ -113,13 +113,13 @@ function getWeatherName(code) {
     return "Weather undefined";
 }
 
-export default function DayCard({ day, weather }) {
+export default function DayCard({ day, weather, setIndexFunction }) {
     let date = new Date();
     date.setDate(date.getDate() + day);
     let dayName = date.toLocaleDateString("en-GB", { weekday: "short" });
 
     return (
-        <div className="bg-white shadow-md text-black text-center w-full p-2 border-1 border-zinc-300 flex flex-col items-center">
+        <div className="bg-white shadow-md text-black text-center w-full p-2 border-1 border-zinc-300 flex flex-col items-center" onClick={() => setIndexFunction(day)}>
             <img src={getWeatherIcon((weather ? weather.weather_code[day] : -1), (date.getHours() < 6 || date.getHours() > 20))} alt={getWeatherName((weather ? weather.weather_code[day] : -1))} title={getWeatherName((weather ? weather.weather_code[day] : -1))}/>
             <p className="text-3xl font-bold">{dayName}</p>
             L: {weather ? weather.temperature_2m_min[day] : "..."} | H: {weather ? weather.temperature_2m_max[day] : "..."}
