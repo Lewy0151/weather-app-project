@@ -48,7 +48,7 @@ function getWeatherIcon(code, night) {
         case 99:
             return "https://worldweather.wmo.int/images/3.png";
     }
-    return "";
+    return null;
 }
 
 function getWeatherName(code) {
@@ -120,7 +120,7 @@ export default function DayCard({ day, weather }) {
 
     return (
         <div className="bg-white shadow-md text-black text-center w-full p-2 border-1 border-zinc-300 flex flex-col items-center">
-            <img src={getWeatherIcon(weather.weather_code[day], (date.getHours() < 6 || date.getHours() > 20))} alt={getWeatherName(weather.weather_code[day])} title={getWeatherName(weather.weather_code[day])}/>
+            <img src={getWeatherIcon((weather ? weather.weather_code[day] : -1), (date.getHours() < 6 || date.getHours() > 20))} alt={getWeatherName((weather ? weather.weather_code[day] : -1))} title={getWeatherName((weather ? weather.weather_code[day] : -1))}/>
             <p className="text-3xl font-bold">{dayName}</p>
             L: {weather ? weather.temperature_2m_min[day] : "..."} | H: {weather ? weather.temperature_2m_max[day] : "..."}
         </div>
