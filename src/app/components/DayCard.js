@@ -120,9 +120,9 @@ export default function DayCard({ day, weather, setIndexFunction }) {
 
     return (
         <div className="bg-white shadow-md text-black text-center w-full p-2 border-1 border-zinc-300 flex flex-col items-center" onClick={() => setIndexFunction(day)}>
-            <img src={getWeatherIcon(((weather && weather.weather_code) ? weather.weather_code[day] : -1), (date.getHours() < 6 || date.getHours() > 20))} alt={getWeatherName(((weather && weather.weather_code) ? weather.weather_code[day] : -1))} title={getWeatherName(((weather && weather.weather_code) ? weather.weather_code[day] : -1))}/>
+            <img src={getWeatherIcon(((weather && weather.weatherCode != null) ? weather.weatherCode : -1), (date.getHours() < 6 || date.getHours() > 20))} alt={getWeatherName(((weather && weather.weatherCode != null) ? weather.weatherCode : -1))} title={getWeatherName(((weather && weather.weatherCode != null) ? weather.weatherCode : -1))}/>
             <p className="text-3xl font-bold">{dayName}</p>
-            L: {(weather && weather.temperature_2m_min) ? weather.temperature_2m_min[day] : "..."} | H: {(weather && weather.temperature_2m_min) ? weather.temperature_2m_max[day] : "..."}
+            L: {(weather && weather.min != null) ? weather.min : "..."} | H: {(weather && weather.max != null) ? weather.max : "..."}
         </div>
     );
 }
