@@ -3,7 +3,7 @@ import DayCard from "./DayCard"
 export default function WeekdayBar({ weather, setIndexFunction, selectedIndex }) {
 
     return (
-        <div className="container w-2/3 grid grid-cols-7 transition-opacity duration-300 w-full">
+        <div className="container w-2/3 grid grid-cols-7 transition-opacity duration-300 w-full items-center">
             <DayCard weather={weather[0]} setIndexFunction={setIndexFunction} selectedIndex={selectedIndex} day={0} />
             <DayCard weather={weather[1]} setIndexFunction={setIndexFunction} selectedIndex={selectedIndex} day={1} />
             <DayCard weather={weather[2]} setIndexFunction={setIndexFunction} selectedIndex={selectedIndex} day={2} />

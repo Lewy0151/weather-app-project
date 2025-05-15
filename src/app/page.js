@@ -161,13 +161,13 @@ function getBackgroundImage(code) {
     switch (code) {
         default:
         case 0:
-            return "https://images.unsplash.com/photo-1622278647429-71bc97e904e8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+            return "https://unsplash.com/photos/zjoydJb17mE/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8c3Vubnl8ZW58MHx8fHwxNzQ3MzE2NzM0fDA&force=true&w=2400";
         case 1:
-            return "https://images.unsplash.com/photo-1622278647429-71bc97e904e8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+            return "https://unsplash.com/photos/ROVBDer29PQ/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8M3x8Y2xlYXIlMjBza3l8ZW58MHx8fHwxNzQ3MzE3NzkxfDI&force=true&w=2400";
         case 2:
-            return "Partly Cloudy";
+            return "https://unsplash.com/photos/dbN5FK8ijZ4/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTR8fGNsZWFyJTIwc3VubnklMjBza3l8ZW58MHx8fHwxNzQ3MzE2NjEwfDA&force=true&w=2400";
         case 3:
-            return "Overcast";
+            return "https://unsplash.com/photos/4C6Rp23RjnE/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8b3ZlcmNhc3R8ZW58MHx8fHwxNzQ3MzIwNzA2fDI&force=true&w=2400";
         case 45:
             return "Fog";
         case 48:
@@ -283,7 +283,7 @@ export default function Home() {
   }
 
   return (
-    <main className={`min-h-screen transition-all duration-200 ease-in-out bg-cover bg-[url(${backgroundImage})]`}>
+    <main className={`min-h-screen transition-all duration-200 ease-in-out bg-cover`} style={{backgroundImage: `url(${backgroundImage})`}}>
       
       {/* Header with logo and name */}
       <div className="w-full bg-white py-4 mb-10">
