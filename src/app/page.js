@@ -270,7 +270,7 @@ export default function Home() {
     <main className={`min-h-screen transition-all duration-200 ease-in-out bg-cover`} style={{backgroundImage: `url(${backgroundImage})`}}>
       
       {/* Header with logo and name */}
-      <div className="w-full bg-white py-4 mb-10">
+      <div className="w-full bg-white shadow-md border-2 border-white py-4 mb-10">
         <div className="max-w-4xl mx-auto flex items-center justify-center">
           <img
             src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeW0wbTY2d3dvNTZmbHE3Y20zd3Jya2F4am8wNWZnc3VyajJrOHVldCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YfjA34yJQTMSaJ86ki/giphy.gif"
