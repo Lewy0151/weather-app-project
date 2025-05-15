@@ -27,9 +27,9 @@ export default function BigWeatherCard({ dayData }) {
         <div className="flex flex-col items-center space-y-4"> 
           <div className="flex items-center space-x-4">
             <img
-              src={`/icons/${dayData.icon}.png`}
+              src={dayData.iconURL}
               alt={dayData.summary}
-              className="h-20 w-20"
+              className="h-21 w-28"
             />
             <p className="text-4xl font-bold">{dayData.temp}°C</p>
           </div>
