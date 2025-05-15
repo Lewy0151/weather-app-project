@@ -12,7 +12,7 @@ export default class ApiClient {
     const params = {
       latitude,
       longitude,
-      daily: "temperature_2m_max,temperature_2m_min,sunrise,sunset,rain_sum,wind_speed_10m_max,wind_direction_10m_dominant",
+      daily: "weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,rain_sum,wind_speed_10m_max,wind_direction_10m_dominant",
       timezone: "auto",
       models: "ukmo_seamless"
     };
