@@ -4,7 +4,7 @@ export default function SmallWeatherCard({ dayData, isSelected, onClick }) {
       <div
         onClick={onClick}
         className={`w-full flex flex-col items-center bg-white rounded-lg shadow-md p-4 cursor-pointer transition-transform duration-200 ease-in-out hover:scale-105 ${
-          isSelected ? 'ring-2 ring-blue-400' : ''
+          isSelected ? 'border-2' : ''
         }`}
       >
         <p className="text-sm font-medium">{dayData.day}</p>

@@ -4,7 +4,6 @@ import BigWeatherCard from './components/BigWeatherCard';
 import SmallWeatherCard from './components/SmallWeatherCard';
 import ApiClient from '../../ApiClient/client';
 
-
 const cities = {
   Liverpool: { latitude: 53.4106, longitude: -2.9779 },
   London: { latitude: 51.5085, longitude: -0.1257 },
@@ -18,14 +17,13 @@ const cities = {
   'Isle of Man': { latitude: 55.063, longitude: -3.5561 },
 };
 
-
 function getWindDirection(degrees) {
   const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
   const index = Math.round(degrees / 45) % 8;
   return directions[index];
 }
 
-// Format date to DD-MM-YYYY
+// Formatting Date To DD-MM-YYYY
 function formatDate(dateString) {
   const date = new Date(dateString);
   const day = String(date.getDate()).padStart(2, '0');
@@ -64,7 +62,7 @@ export default function Home() {
       const response = await client.getWeatherByCity(cities[selectedCity]);
       const data = response.data.daily;
 
-      // Formating Forecast Data
+      // Formatting Forecast Data
       const formatted = data.time.map((date, index) => ({
         day: getWeekday(date),
         date: formatDate(date),
@@ -102,34 +100,41 @@ export default function Home() {
   const selectedDay = forecast[selectedIndex];
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-8">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-center mb-6">UK Weather Forecast</h1>
-
-        {/* City selection dropdown */}
-        <div className="text-center mb-4">
-          <label htmlFor="city" className="mr-2">Select City:</label>
-          <select
-            id="city"
-            value={selectedCity}
-            onChange={(e) => setSelectedCity(e.target.value)}
-            className="p-2 border rounded"
-          >
-            {Object.keys(cities).map((city) => (
-              <option key={city} value={city}>{city}</option>
-            ))}
-          </select>
+    <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 ">
+      
+      {/* Header with logo and name */}
+      <div className="w-full bg-white py-4 mb-20">
+        <div className="max-w-4xl mx-auto flex items-center justify-center">
+          <img
+            src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeW0wbTY2d3dvNTZmbHE3Y20zd3Jya2F4am8wNWZnc3VyajJrOHVldCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YfjA34yJQTMSaJ86ki/giphy.gif"
+            alt="Wellies Gif"
+            className="w-12 h-12 mr-3"
+          />
+          <h1 className="text-3xl font-bold text-gray-800">Wellie Watcher</h1>
         </div>
+      </div>
 
-        {/* Show error if something went wrong */}
-        {error && <p className="text-center text-red-500">{error}</p>}
-        {!error && forecast.length > 0 && (
-          <>
+      {/* City selection dropdown */}
+      <div className="mb-2 border-2 border-white p-3 bg-white rounded-lg shadow-md w-fit mx-auto text-center">
+        <label htmlFor="city" className="mr-2">Select City:</label>
+        <select
+          id="city"
+          value={selectedCity}
+          onChange={(e) => setSelectedCity(e.target.value)}
+          className="p-2 border-2 border-gray-300 rounded"
+        >
+          {Object.keys(cities).map((city) => (
+            <option key={city} value={city}>{city}</option>
+          ))}
+        </select>
+      </div>
 
-
-
-
-            {/* Arrows + Big Weather Card */}
+      {/* Showing Error If Issue */}
+      {error && <p className="text-center text-red-500">{error}</p>}
+      {!error && forecast.length > 0 && (
+        <>
+          {/* Arrows + Big Weather Card */}
+          <div className="max-w-4xl mx-auto">
             <div className="flex items-center justify-between mb-6 transition-opacity duration-300">
               <button
                 onClick={() => changeDay(-1)}
@@ -149,8 +154,10 @@ export default function Home() {
                 &#8594;
               </button>
             </div>
+          </div>
 
-            {/* Small Cards */}
+          {/* Small Cards */}
+          <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-7 gap-4 transition-opacity duration-300">
               {forecast.map((day, index) => (
                 <SmallWeatherCard
@@ -161,9 +168,9 @@ export default function Home() {
                 />
               ))}
             </div>
-          </>
-        )}
-      </div>
+          </div>
+        </>
+      )}
     </main>
   );
 }
