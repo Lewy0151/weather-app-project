@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import BigWeatherCard from './components/BigWeatherCard';
-import SmallWeatherCard from './components/SmallWeatherCard';
+import WeekdayBar from './components/WeekdayBar';
 import ApiClient from '../../ApiClient/client';
 
 const cities = {
@@ -158,15 +158,8 @@ export default function Home() {
 
           {/* Small Cards */}
           <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-7 gap-4 transition-opacity duration-300">
-              {forecast.map((day, index) => (
-                <SmallWeatherCard
-                  key={index}
-                  dayData={day}
-                  isSelected={index === selectedIndex}
-                  onClick={() => setSelectedIndex(index)}
-                />
-              ))}
+            <div className="transition-opacity duration-300">
+                <WeekdayBar weather={client.getWeatherByCity(cities[selectedCity])} setIndexFunction={setSelectedIndex}/>
             </div>
           </div>
         </>
