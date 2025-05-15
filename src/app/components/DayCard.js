@@ -113,16 +113,18 @@ function getWeatherName(code) {
     return "Weather undefined";
 }
 
-export default function DayCard({ day, weather, setIndexFunction }) {
+export default function DayCard({ day, weather, setIndexFunction, selectedIndex }) {
     let date = new Date();
     date.setDate(date.getDate() + day);
     let dayName = date.toLocaleDateString("en-GB", { weekday: "short" });
 
     return (
-        <div className="bg-white shadow-md text-black text-center w-full p-2 border-1 border-zinc-300 flex flex-col items-center" onClick={() => setIndexFunction(day)}>
-            <img src={getWeatherIcon(((weather && weather.weatherCode != null) ? weather.weatherCode : -1), (date.getHours() < 6 || date.getHours() > 20))} alt={getWeatherName(((weather && weather.weatherCode != null) ? weather.weatherCode : -1))} title={getWeatherName(((weather && weather.weatherCode != null) ? weather.weatherCode : -1))}/>
-            <p className="text-3xl font-bold">{dayName}</p>
-            L: {(weather && weather.min != null) ? weather.min : "..."} | H: {(weather && weather.max != null) ? weather.max : "..."}
+        <div className="w-full overflow-visible">
+            <div className={`w-full text-center text-nowrap flex flex-col items-center bg-white rounded-lg shadow-md p-4 cursor-pointer transition-transform duration-200 ease-in-out hover:scale-105 ${(selectedIndex == day) ? 'border-2' : ''}`} onClick={() => setIndexFunction(day)}>
+                <img src={getWeatherIcon(((weather && weather.weatherCode != null) ? weather.weatherCode : -1), (date.getHours() < 6 || date.getHours() > 20))} alt={getWeatherName(((weather && weather.weatherCode != null) ? weather.weatherCode : -1))} title={getWeatherName(((weather && weather.weatherCode != null) ? weather.weatherCode : -1))}/>
+                <p className="text-3xl font-bold">{dayName}</p>
+                L: {(weather && weather.min != null) ? weather.min : "..."} | H: {(weather && weather.max != null) ? weather.max : "..."}
+            </div>
         </div>
     );
 }

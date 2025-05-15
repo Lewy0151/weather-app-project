@@ -160,7 +160,7 @@ export default function Home() {
           {/* Small Cards */}
           <div className="max-w-4xl mx-auto">
             <div className="transition-opacity duration-300">
-                <WeekdayBar weather={forecast} setIndexFunction={setSelectedIndex}/>
+                <WeekdayBar weather={forecast} setIndexFunction={setSelectedIndex} selectedIndex={selectedIndex}/>
             </div>
           </div>
         </>
