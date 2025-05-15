@@ -157,12 +157,59 @@ function getWeatherName(code) {
     return "Weather Data";
 }
 
+function getBackgroundImage(code) {
+    switch (code) {
+        default:
+        case 0:
+            return "https://unsplash.com/photos/zjoydJb17mE/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8c3Vubnl8ZW58MHx8fHwxNzQ3MzE2NzM0fDA&force=true&w=2400";
+        case 1:
+            return "https://unsplash.com/photos/ROVBDer29PQ/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8M3x8Y2xlYXIlMjBza3l8ZW58MHx8fHwxNzQ3MzE3NzkxfDI&force=true&w=2400";
+        case 2:
+            return "https://unsplash.com/photos/dbN5FK8ijZ4/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTR8fGNsZWFyJTIwc3VubnklMjBza3l8ZW58MHx8fHwxNzQ3MzE2NjEwfDA&force=true&w=2400";
+        case 3:
+            return "https://unsplash.com/photos/4C6Rp23RjnE/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8b3ZlcmNhc3R8ZW58MHx8fHwxNzQ3MzIwNzA2fDI&force=true&w=2400";
+        case 45:
+            return "https://unsplash.com/photos/KT3WlrL_bsg/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQ3MzIwNzIwfA&force=true&w=2400";
+        case 48:
+            return "https://unsplash.com/photos/Pa7uT-Oy6zk/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cmltZSUyMGZvZ3xlbnwwfHx8fDE3NDczMjEwOTB8Mg&force=true&w=2400";
+        case 51:
+        case 53:
+        case 55:
+            return "https://unsplash.com/photos/aRparnlDUt0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTF8fGRyaXp6bGV8ZW58MHx8fHwxNzQ3MzIxMTE5fDI&force=true&w=2400";
+        case 56:
+        case 57:
+            return "https://unsplash.com/photos/R1JvvBHh3v8/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NHx8ZnJlZXppbmclMjBkcml6emxlfGVufDB8fHx8MTc0NzMyMTE3Mnwy&force=true&w=2400";
+        case 61:
+        case 63:
+        case 65:
+        case 80:
+        case 81:
+        case 82:
+            return "https://unsplash.com/photos/i2J9jnvaAbU/download?force=true&w=2400";
+        case 66:
+        case 67:
+            return "https://unsplash.com/photos/rnxIOAJTamg/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NXx8Y29sZCUyMHJhaW58ZW58MHx8fHwxNzQ3MzIxMjc2fDI&force=true&w=2400";
+        case 71:
+        case 73:
+        case 75:
+        case 77:
+        case 85:
+        case 86:
+            return "https://unsplash.com/photos/atJncOD6ZFg/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTZ8fHNub3dmYWxsfGVufDB8fHx8MTc0NzMyMTMzMHwy&force=true&w=2400";
+        case 95:
+        case 96:
+        case 99:
+            return "https://unsplash.com/photos/pbxwxwfI0B4/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Nnx8c3Rvcm18ZW58MHx8fHwxNzQ3MzIxNjE0fDI&force=true&w=2400";
+    }
+}
+
 export default function Home() {
   const [selectedCity, setSelectedCity] = useState('London');
   const [forecast, setForecast] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [backgroundImage, setBackgroundImage] = useState();
 
   const client = new ApiClient();
 
@@ -213,8 +260,14 @@ export default function Home() {
 
   const selectedDay = forecast[selectedIndex];
 
+  // We need to do this check before setting the background image otherwise it causes too many re-renders
+  var newBackgroundImage = getBackgroundImage(forecast[selectedIndex] ? forecast[selectedIndex].weatherCode : 0)
+  if (backgroundImage != newBackgroundImage) {
+    setBackgroundImage(newBackgroundImage);
+  }
+
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 ">
+    <main className={`min-h-screen transition-all duration-200 ease-in-out bg-cover`} style={{backgroundImage: `url(${backgroundImage})`}}>
       
       {/* Header with logo and name */}
       <div className="w-full bg-white py-4 mb-10">
