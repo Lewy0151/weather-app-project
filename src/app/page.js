@@ -69,6 +69,7 @@ export default function Home() {
         icon: 'sunny', // Placeholder
         summary: 'Weather Info',
         temp: Math.round((data.temperature_2m_max[index] + data.temperature_2m_min[index]) / 2),
+        weatherCode: data.weather_code[index],
         max: data.temperature_2m_max[index],
         min: data.temperature_2m_min[index],
         rain: data.rain_sum[index],
@@ -159,7 +160,7 @@ export default function Home() {
           {/* Small Cards */}
           <div className="max-w-4xl mx-auto">
             <div className="transition-opacity duration-300">
-                <WeekdayBar weather={client.getWeatherByCity(cities[selectedCity])} setIndexFunction={setSelectedIndex}/>
+                <WeekdayBar weather={forecast} setIndexFunction={setSelectedIndex}/>
             </div>
           </div>
         </>
