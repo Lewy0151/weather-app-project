@@ -18,7 +18,7 @@ const cities = {
 };
 
 function getWindDirection(degrees) {
-  const directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+  const directions = ['North', 'North East', 'East', 'South East', 'South', 'South West', 'West', 'North West'];
   const index = Math.round(degrees / 45) % 8;
   return directions[index];
 }
@@ -185,7 +185,7 @@ export default function Home() {
         weatherCode: data.weather_code[index],
         max: data.temperature_2m_max[index],
         min: data.temperature_2m_min[index],
-        rain: data.rain_sum[index],
+        rain: data.rain_sum[index] != null ? data.rain_sum[index] : 0,
         sunrise: data.sunrise[index],
         sunset: data.sunset[index],
         wind: (data.wind_speed_10m_max[index] * 0.621371).toFixed(1),
