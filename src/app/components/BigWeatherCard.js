@@ -29,7 +29,7 @@ export default function BigWeatherCard({ dayData }) {
             <img
               src={dayData.iconURL}
               alt={dayData.summary}
-              className="h-20 w-20"
+              className="h-21 w-28"
             />
             <p className="text-4xl font-bold">{dayData.temp}°C</p>
           </div>
