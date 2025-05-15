@@ -169,53 +169,37 @@ function getBackgroundImage(code) {
         case 3:
             return "https://unsplash.com/photos/4C6Rp23RjnE/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8b3ZlcmNhc3R8ZW58MHx8fHwxNzQ3MzIwNzA2fDI&force=true&w=2400";
         case 45:
-            return "Fog";
+            return "https://unsplash.com/photos/KT3WlrL_bsg/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzQ3MzIwNzIwfA&force=true&w=2400";
         case 48:
-            return "Rime Fog";
+            return "https://unsplash.com/photos/Pa7uT-Oy6zk/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8cmltZSUyMGZvZ3xlbnwwfHx8fDE3NDczMjEwOTB8Mg&force=true&w=2400";
         case 51:
-            return "Light Drizzle";
         case 53:
-            return "Moderate Drizzle";
         case 55:
-            return "Dense Drizzle";
+            return "https://unsplash.com/photos/aRparnlDUt0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTF8fGRyaXp6bGV8ZW58MHx8fHwxNzQ3MzIxMTE5fDI&force=true&w=2400";
         case 56:
-            return "Light Freezing Drizzle";
         case 57:
-            return "Dense Freezing Drizzle";
+            return "https://unsplash.com/photos/R1JvvBHh3v8/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NHx8ZnJlZXppbmclMjBkcml6emxlfGVufDB8fHx8MTc0NzMyMTE3Mnwy&force=true&w=2400";
         case 61:
-            return "Light Rain";
         case 63:
-            return "Moderate Rain";
         case 65:
-            return "Heavy Rain";
-        case 66:
-            return "Light Freezing Rain";
-        case 67:
-            return "Heavy Freezing Rain";
-        case 71:
-            return "Light Snowfall";
-        case 73:
-            return "Moderate Snowfall";
-        case 75:
-            return "Heavy Snowfall";
-        case 77:
-            return "Snow Grains";
         case 80:
-            return "Light Showers";
         case 81:
-            return "Moderate Showers";
         case 82:
-            return "Heavy Showers";
+            return "https://unsplash.com/photos/i2J9jnvaAbU/download?force=true&w=2400";
+        case 66:
+        case 67:
+            return "https://unsplash.com/photos/rnxIOAJTamg/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NXx8Y29sZCUyMHJhaW58ZW58MHx8fHwxNzQ3MzIxMjc2fDI&force=true&w=2400";
+        case 71:
+        case 73:
+        case 75:
+        case 77:
         case 85:
-            return "Light Snow Showers";
         case 86:
-            return "Heavy Snow Showers";
+            return "https://unsplash.com/photos/atJncOD6ZFg/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTZ8fHNub3dmYWxsfGVufDB8fHx8MTc0NzMyMTMzMHwy&force=true&w=2400";
         case 95:
-            return "Thunderstorm";
         case 96:
-            return "Thunderstorm with Slight Hail";
         case 99:
-            return "Thunderstorm with Heavy Hail";
+            return "https://unsplash.com/photos/pbxwxwfI0B4/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Nnx8c3Rvcm18ZW58MHx8fHwxNzQ3MzIxNjE0fDI&force=true&w=2400";
     }
 }
 
