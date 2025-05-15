@@ -157,12 +157,75 @@ function getWeatherName(code) {
     return "Weather Data";
 }
 
+function getBackgroundImage(code) {
+    switch (code) {
+        default:
+        case 0:
+            return "https://images.unsplash.com/photo-1622278647429-71bc97e904e8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+        case 1:
+            return "https://images.unsplash.com/photo-1601297183305-6df142704ea2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+        case 2:
+            return "Partly Cloudy";
+        case 3:
+            return "Overcast";
+        case 45:
+            return "Fog";
+        case 48:
+            return "Rime Fog";
+        case 51:
+            return "Light Drizzle";
+        case 53:
+            return "Moderate Drizzle";
+        case 55:
+            return "Dense Drizzle";
+        case 56:
+            return "Light Freezing Drizzle";
+        case 57:
+            return "Dense Freezing Drizzle";
+        case 61:
+            return "Light Rain";
+        case 63:
+            return "Moderate Rain";
+        case 65:
+            return "Heavy Rain";
+        case 66:
+            return "Light Freezing Rain";
+        case 67:
+            return "Heavy Freezing Rain";
+        case 71:
+            return "Light Snowfall";
+        case 73:
+            return "Moderate Snowfall";
+        case 75:
+            return "Heavy Snowfall";
+        case 77:
+            return "Snow Grains";
+        case 80:
+            return "Light Showers";
+        case 81:
+            return "Moderate Showers";
+        case 82:
+            return "Heavy Showers";
+        case 85:
+            return "Light Snow Showers";
+        case 86:
+            return "Heavy Snow Showers";
+        case 95:
+            return "Thunderstorm";
+        case 96:
+            return "Thunderstorm with Slight Hail";
+        case 99:
+            return "Thunderstorm with Heavy Hail";
+    }
+}
+
 export default function Home() {
   const [selectedCity, setSelectedCity] = useState('London');
   const [forecast, setForecast] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [backgroundImage, setBackgroundImage] = useState("https://images.unsplash.com/photo-1622278647429-71bc97e904e8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
 
   const client = new ApiClient();
 
@@ -213,8 +276,14 @@ export default function Home() {
 
   const selectedDay = forecast[selectedIndex];
 
+  // We need to do this check before setting the background image otherwise it causes too many re-renders
+  var newBackgroundImage = getBackgroundImage(forecast[selectedIndex] ? forecast[selectedIndex].weatherCode : 0)
+  if (backgroundImage != newBackgroundImage) {
+    setBackgroundImage(newBackgroundImage);
+  }
+
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 ">
+    <main className={`min-h-screen transition-all duration-200 ease-in-out bg-cover bg-[url(${backgroundImage})]`}>
       
       {/* Header with logo and name */}
       <div className="w-full bg-white py-4 mb-10">
