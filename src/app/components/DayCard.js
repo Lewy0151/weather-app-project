@@ -123,7 +123,7 @@ export default function DayCard({ day, weather, setIndexFunction, selectedIndex 
             <div className={`w-full text-center text-nowrap flex flex-col items-center bg-white rounded-lg shadow-md p-4 cursor-pointer transition-transform duration-200 ease-in-out hover:scale-105 ${(selectedIndex == day) ? 'border-2' : ''}`} onClick={() => setIndexFunction(day)}>
                 <img src={getWeatherIcon(((weather && weather.weatherCode != null) ? weather.weatherCode : -1), (date.getHours() < 6 || date.getHours() > 20))} alt={getWeatherName(((weather && weather.weatherCode != null) ? weather.weatherCode : -1))} title={getWeatherName(((weather && weather.weatherCode != null) ? weather.weatherCode : -1))}/>
                 <p className="text-3xl font-bold">{dayName}</p>
-                L: {(weather && weather.min != null) ? weather.min : "..."} | H: {(weather && weather.max != null) ? weather.max : "..."}
+                {(weather && weather.temp != null) ? weather.temp : "..."}°C
             </div>
         </div>
     );
