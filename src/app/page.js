@@ -230,7 +230,7 @@ export default function Home() {
         date: formatDate(date),
         iconURL: getWeatherIcon(data.weather_code[index], (new Date().getHours() < 6 || new Date().getHours() > 20)), // Placeholder
         summary: getWeatherName(data.weather_code[index]),
-        temp: Math.round((data.temperature_2m_max[index] + data.temperature_2m_min[index]) / 2),
+        temp: ((data.temperature_2m_max[index] != null && data.temperature_2m_min[index] != null) ? Math.round((data.temperature_2m_max[index] + data.temperature_2m_min[index]) / 2) : null),
         weatherCode: data.weather_code[index],
         max: data.temperature_2m_max[index],
         min: data.temperature_2m_min[index],
