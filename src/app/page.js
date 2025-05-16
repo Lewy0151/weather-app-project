@@ -4,6 +4,8 @@ import BigWeatherCard from './components/BigWeatherCard';
 import WeekdayBar from './components/WeekdayBar';
 import ApiClient from '../../ApiClient/client';
 
+
+
 const cities = {
   Liverpool: { latitude: 53.4106, longitude: -2.9779 },
   London: { latitude: 51.5085, longitude: -0.1257 },
@@ -239,6 +241,8 @@ export default function Home() {
         windDir: getWindDirection(data.wind_direction_10m_dominant[index]),
         windDeg: data.wind_direction_10m_dominant[index],
       }));
+
+      
 
       setForecast(formatted);
       setSelectedIndex(0);
