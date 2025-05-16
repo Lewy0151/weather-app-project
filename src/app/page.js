@@ -257,6 +257,20 @@ export default function Home() {
     fetchWeather();
   }, [selectedCity]);
 
+  // Using Arrow Keys to Change Days
+  useEffect(() => {
+  const handleKeyDown = (event) => {
+    if (event.key === 'ArrowLeft') {
+      setSelectedIndex((prev) => (prev - 1 + forecast.length) % forecast.length);
+    } else if (event.key === 'ArrowRight') {
+      setSelectedIndex((prev) => (prev + 1) % forecast.length);
+    }
+  };
+
+  window.addEventListener('keydown', handleKeyDown);
+  return () => window.removeEventListener('keydown', handleKeyDown);
+}, [forecast.length]);
+
   // Changing Selected Day
   const changeDay = (dir) => {
     setSelectedIndex((prev) => (prev + dir + forecast.length) % forecast.length);

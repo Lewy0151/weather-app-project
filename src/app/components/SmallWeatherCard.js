@@ -1,5 +1,3 @@
-
-
 export default function SmallWeatherCard({ dayData, isSelected, onClick }) {
   return (
     <div className="w-full overflow-hidden">
