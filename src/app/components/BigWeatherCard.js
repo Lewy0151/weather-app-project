@@ -8,7 +8,7 @@ function formatTime(time) {
 }
 
 export default function BigWeatherCard({ dayData }) {
-  const weatherSummary = `Today the sunrise will be at ${formatTime(dayData.sunrise)}, with the highest temperature of ${dayData.max}°C. You can expect rainfall of ${dayData.rain} mm and winds of ${dayData.wind} mph coming from the ${dayData.windDir}. The sunset will be at ${formatTime(dayData.sunset)}.`;
+  const weatherSummary = `The sunrise will be at ${formatTime(dayData.sunrise)}, with the highest temperature of ${dayData.max}°C. You can expect rainfall of ${dayData.rain} mm and winds of ${dayData.wind} mph coming from the ${dayData.windDir}. The sunset will be at ${formatTime(dayData.sunset)}.`;
 
   return (
     <div className="w-full bg-white rounded-xl shadow-lg p-6">
