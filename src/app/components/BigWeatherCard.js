@@ -40,7 +40,7 @@ export default function BigWeatherCard({ dayData }) {
         <div className="space-y-6 text-m text-gray-700">
           <div><span className="font-medium">Max:</span> {dayData.max}°C</div>
           <div><span className="font-medium">Min:</span> {dayData.min}°C</div>
-          <div><span className="font-medium">Wind:</span> {dayData.wind} km/h</div>
+          <div><span className="font-medium">Wind:</span> {dayData.wind} mph</div>
         </div>
       </div>
 
