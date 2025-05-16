@@ -2,6 +2,9 @@
 
 Wellie Watcher is a responsive weather forecast app built with **Next.js**. It provides users with daily weather information for cities across the UK, presented in an intuitive UI with both large and small weather cards. Designed with a fun and informative feel, it uses real-time data from the **Open-Meteo API**.
 
+## Live Demo
+Check out the live version of this project here: [https://weather-app-project-omega-jet.vercel.app/](https://weather-app-project-omega-jet.vercel.app/)
+
 ## 🚀 Features
 
 - View 7-day weather forecast for UK cities
