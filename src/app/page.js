@@ -94,7 +94,7 @@ function getWeatherIcon(code, night) {
         case 99:
             return "https://worldweather.wmo.int/images/3.png";
     }
-    return null;
+    return "https://www.dropbox.com/scl/fi/j5bjrdwl1vublvkovdwng/no.png?rlkey=bjlwuksfrzctved12g4svy8p8&st=kx1nb3f4&dl=1";
 }
 
 function getWeatherName(code) {
@@ -156,7 +156,7 @@ function getWeatherName(code) {
         case 99:
             return "Thunderstorm with Heavy Hail";
     }
-    return "Weather Data";
+    return "No Data Available";
 }
 
 function getBackgroundImage(code) {
@@ -230,14 +230,14 @@ export default function Home() {
         date: formatDate(date),
         iconURL: getWeatherIcon(data.weather_code[index], (new Date().getHours() < 6 || new Date().getHours() > 20)), // Placeholder
         summary: getWeatherName(data.weather_code[index]),
-        temp: Math.round((data.temperature_2m_max[index] + data.temperature_2m_min[index]) / 2),
+        temp: ((data.temperature_2m_max[index] != null && data.temperature_2m_min[index] != null) ? Math.round((data.temperature_2m_max[index] + data.temperature_2m_min[index]) / 2) : null),
         weatherCode: data.weather_code[index],
         max: data.temperature_2m_max[index],
         min: data.temperature_2m_min[index],
-        rain: data.rain_sum[index] != null ? data.rain_sum[index] : 0,
+        rain: data.rain_sum[index],
         sunrise: data.sunrise[index],
         sunset: data.sunset[index],
-        wind: (data.wind_speed_10m_max[index] * 0.621371).toFixed(1),
+        wind: (data.wind_speed_10m_max[index] != null ? (data.wind_speed_10m_max[index] * 0.621371).toFixed(1) : null),
         windDir: getWindDirection(data.wind_direction_10m_dominant[index]),
         windDeg: data.wind_direction_10m_dominant[index],
       }));

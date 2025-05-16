@@ -10,7 +10,12 @@ function formatTime(time) {
 }
 
 export default function BigWeatherCard({ dayData }) {
-  const weatherSummary = `The sunrise will be at ${formatTime(dayData.sunrise)}, with the highest temperature of ${dayData.max}°C. You can expect rainfall of ${dayData.rain} mm and winds of ${dayData.wind} mph coming from the ${dayData.windDir}. The sunset will be at ${formatTime(dayData.sunset)}.`;
+  var displayTemp = (dayData.temp != null ? dayData.temp + "°C" : "N/A");
+  var displayMax = (dayData.max != null ? dayData.min + "°C" : "N/A");
+  var displayMin = (dayData.min != null ? dayData.min + "°C" : "N/A");
+  var displayWind = (dayData.wind != null ? dayData.wind + " mph" : "N/A")
+  var displayRain = (dayData.rain != null ? dayData.rain + " mm" : "N/A")
+  const weatherSummary = `The sunrise will be at ${formatTime(dayData.sunrise)}, with the highest temperature of ${displayMax}. You can expect rainfall of ${displayRain} and winds of ${displayWind} coming from the ${dayData.windDir}. The sunset will be at ${formatTime(dayData.sunset)}.`;
 
   return (
     <div className="w-full bg-white rounded-xl shadow-lg p-6">
@@ -33,16 +38,16 @@ export default function BigWeatherCard({ dayData }) {
               alt={dayData.summary}
               className="h-21 w-28"
             />
-            <p className="text-4xl font-bold">{dayData.temp}°C</p>
+            <p className="text-4xl font-bold">{displayTemp}</p>
           </div>
           <p className="text-lg text-gray-600">{dayData.summary}</p>
         </div>
 
         {/* Right Side */}
         <div className="space-y-6 text-m text-gray-700">
-          <div><span className="font-medium">Max:</span> {dayData.max}°C</div>
-          <div><span className="font-medium">Min:</span> {dayData.min}°C</div>
-          <div><span className="font-medium">Wind:</span> {dayData.wind} mph</div>
+          <div><span className="font-medium">Max:</span> {displayMax}</div>
+          <div><span className="font-medium">Min:</span> {displayMin}</div>
+          <div><span className="font-medium">Wind:</span> {displayWind}</div>
         </div>
       </div>
 
