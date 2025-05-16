@@ -1,6 +1,7 @@
 "use client";
 
 export default function DayCard({ day, weather, setIndexFunction, selectedIndex }) {
+    if (!weather) return null;
     let date = new Date();
     date.setDate(date.getDate() + day);
 
