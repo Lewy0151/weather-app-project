@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌦️ Wellie Watcher
 
-## Getting Started
+Wellie Watcher is a responsive weather forecast app built with **Next.js**. It provides users with daily weather information for cities across the UK, presented in an intuitive UI with both large and small weather cards. Designed with a fun and informative feel, it uses real-time data from the **Open-Meteo API**.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
+- View 7-day weather forecast for UK cities
+- Clickable small cards to view detailed daily forecasts
+- Arrow navigation (keyboard + clickable)
+- Dynamic background image based on the selected day's weather
+- Select from multiple UK cities
+- Fully responsive design with Tailwind CSS
+
+## 🛠️ Tech Stack
+
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Open-Meteo API](https://open-meteo.com/)
+- JavaScript (ES6+)
+
+## 📸 Screenshots
+
+<img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExeW0wbTY2d3dvNTZmbHE3Y20zd3Jya2F4am8wNWZnc3VyajJrOHVldCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YfjA34yJQTMSaJ86ki/giphy.gif" width="300" />
+
+## 🔧 Setup Instructions
+
+1. **Clone the repo**
+
+   ```bash
+   git clone https://github.com/Lewy0151/weather-app-project.git
+   cd wellie-watcher
+Install dependencies
+
+bash
+Copy
+Edit
+npm install
+Run the development server
+
+bash
+Copy
+Edit
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 to view the app in your browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🎯 Future Improvements
+Hour-by-hour forecast
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Add more cities
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Add mobile swipe gesture support
 
-## Learn More
+Dark mode
 
-To learn more about Next.js, take a look at the following resources:
+📄 License
+This project is open source and available under the MIT License.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
